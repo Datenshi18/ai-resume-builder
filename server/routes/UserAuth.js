@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const { UserModel } = require("../models/UserModel");
 const jwt = require('jsonwebtoken');
-const authMiddleware = require("./middleware.js");
+
 
 
 
@@ -65,7 +65,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       { id: user._id, email: user.email },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "7d" }
     );
 
     // 5. Send response

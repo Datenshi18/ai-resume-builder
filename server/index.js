@@ -5,6 +5,8 @@ require('dotenv').config();
 const connectDb = require('./config/db');
 const UserAuth = require('./routes/UserAuth');
 const resumeRoutes = require('./routes/resumeRoutes');
+const aiOutput = require('./routes/aiRoutes');
+const tailoredResume = require('./routes/tailoredResume');
 
 
 
@@ -17,6 +19,8 @@ app.use(express.json());
 
 app.use("/api/auth", UserAuth);
 app.use('/api/resume', resumeRoutes);
+app.use('/api/ai' , aiOutput)
+app.use('/api/tailored-resume',tailoredResume)
         
 
 const PORT = process.env.PORT || 5000; 
